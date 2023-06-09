@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link-button {
+    @apply flex items-center space-x-2 shadow-box-inset bg-white rounded-lg p-4;
+  }
+
+  .link-button svg {
+    @apply w-8 h-8;
+  }
+
+  .link-button p {
+    @apply text-2xl font-bold;
+  }
+}
