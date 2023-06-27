@@ -14,4 +14,8 @@
   .link-button p {
     @apply text-2xl font-bold;
   }
+
+  .text-glow {
+    text-shadow: #456bd5 0 0 10px;
+  }
 }

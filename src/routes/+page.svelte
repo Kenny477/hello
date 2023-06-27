@@ -1,17 +1,5 @@
 <script lang="ts">
 	let theme: boolean = false;
-
-	let pos = {
-		x: 0,
-		y: 0
-	};
-
-	function handleMouseMove(e: MouseEvent) {
-		pos = {
-			x: e.clientX,
-			y: e.clientY
-		};
-	}
 </script>
 
 <svelte:head>
@@ -19,25 +7,49 @@
 	<link rel="icon" type="image/svg" href="/wavinghand.svg" />
 </svelte:head>
 
-<svg class="absolute top-0 left-0 h-screen w-screen bg-repeat" viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>rain</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="rain" fill="#456bd5" fill-opacity="0.4">
-            <!-- <path d="M4,0.990777969 C4,0.443586406 4.44386482,0 5,0 C5.55228475,0 6,0.45097518 6,0.990777969 L6,5.00922203 C6,5.55641359 5.55613518,6 5,6 C4.44771525,6 4,5.54902482 4,5.00922203 L4,0.990777969 Z M10,8.99077797 C10,8.44358641 10.4438648,8 11,8 C11.5522847,8 12,8.45097518 12,8.99077797 L12,13.009222 C12,13.5564136 11.5561352,14 11,14 C10.4477153,14 10,13.5490248 10,13.009222 L10,8.99077797 Z" id="Combined-Shape"></path> -->
-            <path d="M 1 1 C 1 1.27 1.23 1.5 1.5 1.5 C 1.77 1.5 2 1.27 2 1 C 2 0.73 1.77 0.5 1.5 0.5 C 1.23 0.5 1 0.73 1 1" id="Combined-Shape"></path>
-        </g>
-    </g>
+<!-- Look into the following for animated -->
+<!-- https://css-tricks.com/how-to-map-mouse-position-in-css/ -->
+<svg
+	class="absolute top-0 left-0 h-screen w-screen"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<defs>
+		<filter id="blur1" x="-10%" y="-10%" width="120%" height="120%"
+			><feFlood flood-opacity="0" result="BackgroundImageFix" /><feBlend
+				mode="normal"
+				in="SourceGraphic"
+				in2="BackgroundImageFix"
+				result="shape"
+			/><feGaussianBlur stdDeviation="163" result="effect1_foregroundBlur" /></filter
+		>
+		<pattern id="grain" viewBox="0 0 4 4" width="0.75%" height="1%">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g fill="#456bd5" fill-opacity="1">
+					<path
+						d="M 1 1 C 1 1.27 1.23 1.5 1.5 1.5 C 1.77 1.5 2 1.27 2 1 C 2 0.73 1.77 0.5 1.5 0.5 C 1.23 0.5 1 0.73 1 1"
+					/>
+				</g>
+			</g>
+		</pattern>
+	</defs>
+	<rect width="100%" height="100%" fill="#456bd5" />
+	<g filter="url(#blur1)">
+		<circle cx="13%" cy="9%" fill="#ffffff" r="33%" />
+		<circle cx="19%" cy="6%" fill="#ffffff" r="20%" />
+		<circle cx="22%" cy="40%" fill="#ffffff" r="12%" />
+		<circle cx="11%" cy="94%" fill="#ffffff" r="16%" />
+		<circle cx="18%" cy="29%" fill="#ffffff" r="17%" />
+		<circle cx="67%" cy="85%" fill="#ffffff" r="25%" />
+		<circle cx="89%" cy="16%" fill="#ffffff" r="15%" />
+	</g>
+	<rect width="100%" height="100%" fill="url(#grain)" />
 </svg>
 
-<svg class="absolute top-0 left-0 h-screen w-screen z-10" >
-	<circle cx={pos.x} cy={pos.y} r="25" fill="red" />
-</svg>
-
-<main class="absolute top-0 left-0 h-screen w-screen flex flex-col space-y-8 items-center justify-center z-20" on:mousemove={handleMouseMove}>
-	<div class="bg-white rounded-lg flex flex-col p-8 space-y-4">
+<main
+	class="absolute top-0 left-0 h-screen w-screen flex flex-col space-y-8 items-center justify-center z-20"
+>
+	<div class="bg-white rounded-lg flex flex-col p-8 space-y-4 shadow-2xl shadow-[#456bd5]">
 		<p class="text-8xl">kenneth tang</p>
 		<div class="flex flex-col space-y-4 text-6xl">
 			<a href="https://github.com/Kenny477" rel="noreferrer" target="_blank" class="link-button">
