@@ -9,8 +9,7 @@
 	onMount(() => {
 		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			lightMode = false;
-		}
-		else {
+		} else {
 			lightMode = true;
 		}
 	});
@@ -51,52 +50,45 @@
 		</pattern>
 	</defs>
 	<rect width="100%" height="100%" fill="#456bd5" />
-	{#if lightMode}
-		<g filter="url(#blur1)">
-			<circle cx="13%" cy="9%" fill="#ffffff" r="33%" />
-			<circle cx="19%" cy="6%" fill="#ffffff" r="20%" />
-			<circle cx="22%" cy="40%" fill="#ffffff" r="12%" />
-			<circle cx="11%" cy="94%" fill="#ffffff" r="16%" />
-			<circle cx="18%" cy="29%" fill="#ffffff" r="17%" />
-			<circle cx="67%" cy="85%" fill="#ffffff" r="25%" />
-			<circle cx="89%" cy="16%" fill="#ffffff" r="15%" />
-		</g>
-	{:else}
-		<g filter="url(#blur1)">
-			<circle cx="13%" cy="9%" fill="#000000" r="33%" />
-			<circle cx="19%" cy="6%" fill="#000000" r="20%" />
-			<circle cx="22%" cy="40%" fill="#000000" r="12%" />
-			<circle cx="11%" cy="94%" fill="#000000" r="16%" />
-			<circle cx="18%" cy="29%" fill="#000000" r="17%" />
-			<circle cx="67%" cy="85%" fill="#000000" r="25%" />
-			<circle cx="89%" cy="16%" fill="#000000" r="15%" />
-		</g>
-	{/if}
+	<g
+		filter="url(#blur1)"
+		class={`${lightMode ? 'fill-white' : 'fill-black'} transition-colors duration-200`}
+	>
+		<circle cx="13%" cy="9%" r="33%" />
+		<circle cx="19%" cy="6%" r="20%" />
+		<circle cx="22%" cy="40%" r="12%" />
+		<circle cx="11%" cy="94%" r="16%" />
+		<circle cx="18%" cy="29%" r="17%" />
+		<circle cx="67%" cy="85%" r="25%" />
+		<circle cx="89%" cy="16%" r="15%" />
+	</g>
 	<rect width="100%" height="100%" fill="url(#grain)" />
 </svg>
 
 <main
-	class="absolute top-0 left-0 h-screen w-screen flex flex-col space-y-8 items-center justify-center z-20"
+	class="absolute top-0 left-0 h-screen w-screen flex flex-col p-8 md:p-4 items-center justify-center z-20"
 >
-	<div
+	<button
+		on:click={() => {
+			lightMode = !lightMode;
+		}}
 		class={`${
-			lightMode ? 'justify-start bg-white' : 'justify-end bg-black'
-		} flex absolute top-4 right-4 w-12 h-8 p-1 rounded-full shadow-2xl shadow-[#456bd5]`}
+			lightMode ? 'bg-white' : 'bg-black'
+		} flex absolute top-8 md:top-12 right-8 md:right-12 w-20 h-12 p-2 rounded-full shadow-2xl shadow-[#456bd5]`}
 	>
-		<button
-			on:click={() => {
-				lightMode = !lightMode;
-			}}
-			class="w-6 h-6 rounded-full bg-[#456bd5]"
+		<div
+			class={`${
+				lightMode ? 'translate-x-0' : 'translate-x-8'
+			} transition-transform motion-reduce:transform-none duration-500 w-8 h-8 rounded-full bg-[#456bd5]`}
 		/>
-	</div>
+	</button>
 	<div
 		class={`${
 			lightMode ? 'bg-white/90 text-black' : 'bg-black/60 text-white/90'
-		} w-1/2 h-3/4 rounded-lg flex flex-col p-8 space-y-4 shadow-2xl shadow-[#456bd5]`}
+		} transition-colors duration-200 w-full md:w-1/2 h-3/4 md:min-h-max md:max-h-full rounded-lg flex flex-col p-8 space-y-8 shadow-2xl shadow-[#456bd5]`}
 	>
-		<p class="text-8xl">kenneth tang</p>
-		<div class="flex flex-col space-y-4 text-6xl">
+		<p class="text-6xl lg:text-8xl">kenneth tang</p>
+		<div class="flex flex-col space-y-4 text-6xl h-2/3 justify-end">
 			<a
 				href="https://github.com/Kenny477"
 				rel="noreferrer"
