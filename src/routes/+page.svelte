@@ -85,10 +85,10 @@
 	<div
 		class={`${
 			lightMode ? 'bg-white/90 text-black' : 'bg-black/60 text-white/90'
-		} transition-colors duration-200 w-full md:w-1/2 h-3/4 md:min-h-max md:max-h-full rounded-lg flex flex-col p-8 space-y-8 shadow-2xl shadow-[#456bd5]`}
+		} transition-colors duration-200 w-full md:w-2/3 lg:w-1/2 h-3/4 lg:min-h-max lg:max-h-full rounded-lg flex flex-col p-8 space-y-8 justify-center shadow-2xl shadow-[#456bd5]`}
 	>
 		<p class="text-6xl lg:text-8xl">kenneth tang</p>
-		<div class="flex flex-col space-y-4 text-6xl h-2/3 justify-end">
+		<div class="flex flex-col space-y-4 text-6xl">
 			<a
 				href="https://github.com/Kenny477"
 				rel="noreferrer"
