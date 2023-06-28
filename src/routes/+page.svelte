@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 
 	let lightMode: boolean;
@@ -12,11 +10,6 @@
 		} else {
 			lightMode = true;
 		}
-	});
-
-	const slide = tweened(0, {
-		duration: 1000,
-		easing: cubicOut
 	});
 </script>
 
