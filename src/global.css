@@ -13,7 +13,7 @@
 
 	.link-button svg,
 	.link-button-dark svg {
-		@apply w-8 h-8;
+		@apply w-8 h-8 flex-shrink-0;
 	}
 
 	.link-button p,
