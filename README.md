@@ -1,5 +1,7 @@
 # hello
 
+![lighthouse-accessibility]() ![lighthouse-best-practices]() ![lighthouse-seo]()
+
 This is the repository containing the source code for my landing page at [hello.kennethtang.org](https://hello.kennethtang.org).
 
 Built with
