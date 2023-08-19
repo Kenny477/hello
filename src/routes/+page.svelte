@@ -16,6 +16,8 @@
 <svelte:head>
 	<title>Hello!</title>
 	<link rel="icon" type="image/svg" href="/wavinghand.svg" />
+	<meta name="description" content="Kenneth Tang's landing page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
 <svg
@@ -68,6 +70,8 @@
 		class={`${
 			lightMode ? 'bg-white' : 'bg-black'
 		} flex absolute top-8 md:top-12 right-8 md:right-12 w-20 h-12 p-2 rounded-full shadow-2xl shadow-[#456bd5]`}
+		type="button"
+		aria-label="Light or dark mode toggle"
 	>
 		<div
 			class={`${
@@ -78,9 +82,9 @@
 	<div
 		class={`${
 			lightMode ? 'bg-white/90 text-black' : 'bg-black/60 text-white/90'
-		} transition-colors duration-200 w-full md:w-2/3 lg:w-1/2 h-3/4 lg:min-h-max lg:max-h-full rounded-lg flex flex-col p-8 space-y-8 justify-center shadow-2xl shadow-[#456bd5]`}
+		} transition-colors duration-200 w-full md:w-2/3 lg:w-1/2 h-3/4 lg:min-h-max lg:max-h-full rounded-lg flex flex-col p-8 space-y-8 justify-center shadow-2xl shadow-[#456bd5] overflow-hidden`}
 	>
-		<p class="text-6xl lg:text-8xl">kenneth tang</p>
+		<p class="text-5xl sm:text-6xl lg:text-8xl">kenneth tang</p>
 		<div class="flex flex-col space-y-4 text-6xl">
 			<a
 				href="https://github.com/Kenny477"
